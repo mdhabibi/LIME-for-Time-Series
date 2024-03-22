@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from tensorflow.keras.utils import to_categorical
 
 def load_data(file_path, sep=',', header=None):
     """
@@ -87,3 +88,24 @@ def preprocess_data(file_path, sep=',', header=None, target_column=0, split=Fals
         return split_data(data, target_column=target_column, split=True)
     else:
         return data
+
+def prepare_for_conv1d_training(features, labels, num_classes):
+    """
+    Prepares the dataset for Conv1D training: reshapes features and one-hot encodes labels.
+    
+    Parameters:
+        features (DataFrame or ndarray): The features of the dataset.
+        labels (Series or ndarray): The labels of the dataset.
+        num_classes (int): The total number of classes in the dataset.
+    
+    Returns:
+        tuple: A tuple containing the reshaped features and one-hot encoded labels.
+    """
+    # Reshape input data to be 3D [samples, timesteps, features] for Conv1D
+    X_reshaped = np.expand_dims(features, axis=2)
+    
+    # Adjust labels to be zero-based if not already and one-hot encode
+    labels_adjusted = labels - 1  # Adjust labels if they're not zero-based
+    y_one_hot = to_categorical(labels_adjusted, num_classes=num_classes)
+    
+    return X_reshaped, y_one_hot
