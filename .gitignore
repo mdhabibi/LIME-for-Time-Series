@@ -1,0 +1,93 @@
+# Bytecode files
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+env/
+venv/
+.venv/
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Python distribution artifacts
+dist/
+build/
+*.egg-info/
+*.egg
+wheel/
+.coverage
+.tox/
+.coverage.*
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Environment variables
+.env
+
+# Log files
+*.log
+
+# Database files
+*.sqlite
+*.db
+
+# Cache files
+*.cache
+*.py[cod]
+
+# Session Storage
+*.session
+
+# Folder view configuration files
+*.lproj/
+*.asar/
+
+# Dynamic libraries
+*.dll
+*.so
+*.dylib
+
+# Compiled Static libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Compiled Objects
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
