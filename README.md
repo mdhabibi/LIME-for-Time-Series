@@ -89,7 +89,7 @@ The coefficients of the interpretable model indicate the importance of each segm
 
 ## Contributing
 
-Contributions to improve the project are welcome. Please follow the standard fork-pull request workflow on GitHub to submit your improvements.
+Contributions to improve the project are welcome. Please follow the standard fork-pull request workflow on GitHub to submit your improvements to the dev branch.
 
 ## License
 
