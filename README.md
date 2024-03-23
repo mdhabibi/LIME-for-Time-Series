@@ -1,7 +1,7 @@
 # LIME for Time-Series Explanation in ECG Classification
 
 <div align="center">
-  <img src="poster.webp" width="500">
+  <img src="poster.jpg" width="500">
 </div>
 
 
