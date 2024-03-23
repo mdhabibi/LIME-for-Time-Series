@@ -35,4 +35,47 @@ cd LIME-for-Time-Series
 
 A detailed example of using these modules can be found in the [main.ipynb](notebooks/main.ipynb) within the notebooks directory.
 
+## LIME Recipe for Time-Series Data: ECG Signal Classification
 
+Explaining time-series predictions, especially in the medical domain, is crucial for trust and interpretability. Here, we detail the recipe for applying Local Interpretable Model-agnostic Explanations (LIME) to time-series data, focusing on ECG signals.
+
+### Step 1: Data Preparation and Model Training
+
+Before applying LIME, ensure you have a trained model ready. The model should be capable of classifying ECG signals into various categories (e.g., normal, arrhythmia types).
+
+- Preprocess your ECG dataset, segmenting the signals and normalizing the data.
+- Train a Convolutional Neural Network (CNN) model, or any suitable classifier, on the processed ECG data.
+
+### Step 2: Generating Perturbations
+
+Perturbations simulate small changes in the data to observe how the model's predictions vary. For ECG signals, perturbations can involve modifying segments of the signal to reflect potential variations in the heart's electrical activity.
+
+- Divide each ECG signal into segments.
+- Generate perturbed versions of a signal by modifying some segments while leaving others unchanged.
+
+### Step 3: Applying LIME
+
+With perturbations ready, LIME can be applied to explain individual predictions:
+
+- For each perturbed signal, predict the class probabilities using the trained model.
+- Calculate the similarity between each perturbed signal and the original signal. This typically involves measuring the cosine distance.
+- Fit a simple interpretable model (e.g., linear regression) to the perturbations, using the similarity scores as weights. This model aims to approximate the complex model's behavior around the original signal.
+
+### Step 4: Visualizing the Explanation
+
+The coefficients of the interpretable model indicate the importance of each segment in influencing the model’s prediction:
+
+- Identify the segments with the highest coefficients as the most influential for the model's prediction.
+- Visualize the original signal, highlighting these influential segments to provide insight into which parts of the signal were most significant in reaching the classification decision.
+
+## Contributing
+
+Contributions to improve the project are welcome. Please follow the standard fork-pull request workflow on GitHub to submit your improvements.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+This project is inspired by the original paper on LIME: ["Why Should I Trust You?" Explaining the Predictions of Any Classifier](https://arxiv.org/abs/1602.04938) by Marco Tulio Ribeiro, Sameer Singh, and Carlos Guestrin.
