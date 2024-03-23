@@ -21,6 +21,7 @@ Time-series classification, particularly in the context of ECG signal analysis, 
 Clone the repository to your local machine:
 
 git clone https://github.com/mdhabibi/LIME-for-Time-Series.git
+
 cd LIME-for-Time-Series
 
 ## Usage
