@@ -13,7 +13,8 @@ Time-series classification, particularly in the context of ECG signal analysis, 
 
 ## Dataset
 
-The dataset utilized in this project is derived from the PhysioNet/Computing in Cardiology Challenge 2020, focusing on the classification of 12-lead ECGs to identify various cardiac abnormalities. Compiled from multiple sources, including the CPSC Database, INCART Database, PTB and PTB-XL Database, the Georgia 12-lead ECG Challenge Database, and an undisclosed database, it encompasses a diverse collection of ECG recordings from different demographics and geographic locations. [Classification of 12-lead ECGs: The PhysioNet/Computing in Cardiology Challenge 2020](https://doi.org/10.1088/1361-6579/abc960) by Perez Alday et al., 2020.
+The dataset utilized in this project is derived from the PhysioNet/Computing in Cardiology Challenge 2020, focusing on the classification of 12-lead ECGs to identify various cardiac abnormalities. Compiled from multiple sources, including the CPSC Database, INCART Database, PTB and PTB-XL Database, the Georgia 12-lead ECG Challenge Database, and an undisclosed database, it encompasses a diverse collection of ECG recordings from different demographics and geographic locations. The data, hosting ECG recordings across four classes (Normal Sinus Rhythm, Atrial Fibrillation, Ventricular Tachycardia or Ventricular Fibrillation, and Myocardial Infarction (Heart Attack)) representing different individuals, aims to advance automatic detection and classification of cardiac abnormalities, contributing significantly to the early and accurate diagnosis of cardiac conditions. For more detailed information: [Classification of 12-lead ECGs: The PhysioNet/Computing in Cardiology Challenge 2020](https://doi.org/10.1088/1361-6579/abc960) by Perez Alday et al., 2020.
+
 
 
 ## Features
