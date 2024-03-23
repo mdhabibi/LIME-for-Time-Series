@@ -24,12 +24,15 @@ git clone https://github.com/mdhabibi/LIME-for-Time-Series.git
 cd LIME-for-Time-Series
 
 ## Usage
-- **Data Preparation:** Start by preparing the ECG dataset. The **data_preprocess.py** module provides functions for loading and preprocessing the data.
 
-- **Model Training:** Use the **model_training.py** module to train a CNN on the prepared ECG data. The module outlines the model architecture and training procedure.
+- **Data Preparation:** Start by preparing the ECG dataset. The [`data_preprocess.py`](src/data_preprocess.py) module provides functions for loading and preprocessing the data.
 
-- **Applying LIME:** The **lime_explanation.py** module contains the implementation of LIME for time-series data. It includes functions for generating perturbations, applying perturbations to the signal, and fitting an interpretable model to the perturbed data.
+- **Model Training:** Use the [`model_training.py`](src/model_training.py) module to train a CNN on the prepared ECG data. The module outlines the model architecture and training procedure.
 
-- **Visualization:** The **visualization.py** module offers visualization utilities to plot the original and perturbed ECG signals, class distribution, and the impact of each segment on the model's predictions.
+- **Applying LIME:** The [`lime_explanation.py`](src/lime_explanation.py) module contains the implementation of LIME for time-series data. It includes functions for generating perturbations, applying perturbations to the signal, and fitting an interpretable model to the perturbed data.
 
-A detailed example of using these modules can be found in the **main.ipynb** within the notebooks directory.
+- **Visualization:** The [`visualization.py`](src/visualization.py) module offers visualization utilities to plot the original and perturbed ECG signals, class distribution, and the impact of each segment on the model's predictions.
+
+A detailed example of using these modules can be found in the [main.ipynb](notebooks/main.ipynb) within the notebooks directory.
+
+
