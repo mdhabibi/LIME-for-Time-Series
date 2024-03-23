@@ -3,6 +3,38 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from lime_explanation import apply_perturbation_to_ecg, perturb_mean  
 
+def plot_class_distribution(labels, title="Class Distribution"):
+    """
+    Plots the distribution of classes using a bar chart, with specific colors for each class.
+    
+    Parameters:
+    - labels (pd.Series): A pandas Series containing class labels.
+    - title (str): Title for the plot.
+    """
+    # Define specific colors for each class
+    class_colors = {1: "r", 2: "g", 3: "b", 4: "k"}
+    
+    # Set the aesthetic style of the plots
+    sns.set_style("whitegrid")
+
+    plt.figure(figsize=(6, 4))
+    ax = sns.countplot(x=labels)
+    ax.set_title(title)
+    
+    # Get unique classes and their counts
+    class_counts = labels.value_counts().sort_index()
+
+    # Iterate over the unique classes and set the colors for each bar
+    for i, class_id in enumerate(class_counts.index):
+        ax.patches[i].set_color(class_colors[class_id])
+
+    plt.xlabel("Class")
+    plt.ylabel("Frequency")
+    plt.xticks(rotation=45)  # Rotate class labels to avoid overlap, if necessary
+    plt.show()
+
+
+
 def plot_sample_signals(ecg_features, ecg_labels):
     """
     Plots one sample signal from each class in the dataset.

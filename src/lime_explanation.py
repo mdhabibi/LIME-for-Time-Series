@@ -83,19 +83,15 @@ def perturb_total_mean(signal, start_idx, end_idx):
 
 def perturb_mean(signal, start_idx, end_idx):
     """
-    Perturbs a segment of the signal by replacing it with the mean of that segment.
+    Directly modifies a segment of the signal by replacing it with the mean of that segment.
     
     Parameters:
-        signal (np.ndarray): The original signal to perturb.
+        signal (np.ndarray): The signal to perturb, modified in place.
         start_idx (int): The starting index of the segment to perturb.
         end_idx (int): The ending index of the segment to perturb.
-        
-    Returns:
-        np.ndarray: The signal with the specified segment perturbed by its own mean.
     """
-    modified_signal = signal.copy()
-    modified_signal[start_idx:end_idx] = np.mean(modified_signal[start_idx:end_idx])
-    return modified_signal
+    mean_value = np.mean(signal[start_idx:end_idx])
+    signal[start_idx:end_idx] = mean_value
 
 def perturb_noise(signal, start_idx, end_idx):
     """
@@ -131,8 +127,7 @@ def generate_random_perturbations(num_perturbations, num_slices):
     random_perturbations = np.random.binomial(1, 0.5, size=(num_perturbations, num_slices))
     return random_perturbations
 
-
-def apply_perturbation_to_ecg(signal, perturbation, num_segments, perturb_function):
+def apply_perturbation_to_ecg(signal, perturbation, num_segments, perturb_function=perturb_mean):
     """
     Apply a perturbation to an ECG signal.
 
@@ -140,23 +135,24 @@ def apply_perturbation_to_ecg(signal, perturbation, num_segments, perturb_functi
     - signal (np.ndarray): The original ECG signal.
     - perturbation (np.ndarray): A vector indicating which segments to turn on (1) or off (0).
     - num_segments (int): The total number of segments the ECG signal is divided into.
-    - perturb_function (function): The function to use for perturbing the signal (e.g., perturb_mean).
+    - perturb_function (function): The function to use for perturbing the signal (default is perturb_mean).
 
     Returns:
     - np.ndarray: A perturbed version of the ECG signal.
     """
-    perturbed_signal = copy.deepcopy(signal)  # Make a copy to avoid modifying the original
+    # Copy the signal to avoid modifying the original
+    perturbed_signal = copy.deepcopy(signal)
     segment_length = len(signal) // num_segments
 
+    # Apply the perturbation based on the provided vector
     for i, active in enumerate(perturbation):
         start_idx = i * segment_length
         end_idx = start_idx + segment_length
-        if not active:  # If the segment is "off"
+        # Apply perturbation function only to "off" segments
+        if not active:
             perturb_function(perturbed_signal, start_idx, end_idx)
 
     return perturbed_signal
-
-import numpy as np
 
 def predict_perturbations(model, instance_ecg, random_perturbations, num_slices, perturb_function):
     """
