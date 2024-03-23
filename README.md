@@ -48,7 +48,7 @@ Before applying LIME, ensure you have a trained model ready. The model should be
 - Train a Convolutional Neural Network (CNN) model, or any suitable classifier, on the processed ECG data.
 
 <div align="center">
-  <img src="outputs/segmented_ecg_signal_sample.png" width="500">
+  <img src="outputs/segmented_ecg_signal_sample.png" width="800">
 </div>
 
 ### Step 2: Generating Perturbations
@@ -59,7 +59,7 @@ Perturbations simulate small changes in the data to observe how the model's pred
 - Generate perturbed versions of a signal by modifying some segments while leaving others unchanged.
 
 <div align="center">
-  <img src="outputs/perturbed_ecg_signal_sample.png" width="500">
+  <img src="outputs/perturbed_ecg_signal_sample.png" width="800">
 </div>
 
 ### Step 3: Applying LIME
@@ -78,7 +78,7 @@ The coefficients of the interpretable model indicate the importance of each segm
 - Visualize the original signal, highlighting these influential segments to provide insight into which parts of the signal were most significant in reaching the classification decision.
 
 <div align="center">
-  <img src="outputs/lime_explanation.png" width="500">
+  <img src="outputs/lime_explanation.png" width="800">
 </div>
 
 ## Contributing
