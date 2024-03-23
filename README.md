@@ -74,7 +74,8 @@ Contributions to improve the project are welcome. Please follow the standard for
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details or visit [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html).
+
 
 ## Acknowledgments
 
